@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
-import { Almendra } from "next/font/google"
+import { Ubuntu } from "next/font/google"
 import "./globals.css"
 
-const almendra = Almendra({
+const ubuntu = Ubuntu({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  variable: "--font-ubuntu",
+  display: "swap",
+  weight: ["400", "500", "700"],
 })
 
 export const metadata: Metadata = {
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${almendra.className} antialiased`}
+        className={`${ubuntu.className} antialiased`}
       >
         {children}
       </body>

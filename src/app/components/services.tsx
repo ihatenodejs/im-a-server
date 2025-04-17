@@ -7,7 +7,7 @@ interface Service {
 
 function Services() {
   return (
-    <div className="space-y-2">
+    <div className="space-y-1">
       {services.map((service: Service) => {
         const Icon = service.icon;
         return (
