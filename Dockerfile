@@ -1,4 +1,4 @@
-FROM oven/bun:1
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
@@ -10,19 +10,18 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build the application
 RUN bun run build
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# Final stage
+FROM oven/bun:1
 
-# Public folder not used at the moment
-# COPY --from=builder /app/public ./public
+WORKDIR /app
 
+COPY --from=builder /app /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-USER nextjs
 
 EXPOSE 3000
 
