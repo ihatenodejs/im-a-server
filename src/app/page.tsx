@@ -7,7 +7,7 @@ export default function Home() {
       <Card>
         <CardHeader>
           <CardTitle className="text-4xl font-bold">
-            I'm <span className="text-muted-foreground">{process.env.NEXT_PUBLIC_SERVER_NAME || "a server"}</span>.
+            I&apos;m <span className="text-muted-foreground">{process.env.NEXT_PUBLIC_SERVER_NAME || "a server"}</span>.
           </CardTitle>
         </CardHeader>
         <CardContent className="-mt-4">
@@ -17,7 +17,7 @@ export default function Home() {
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">
-            I'm running...
+            I&apos;m running...
           </CardTitle>
         </CardHeader>
         <CardContent>
